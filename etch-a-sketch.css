@@ -1,0 +1,30 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+body{
+   margin: 0;  
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgb(209, 209, 209);
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    width: 750px;
+    border: 2px solid black;
+}
+
+.row .cell {
+    background: rgb(255, 255, 255);
+    /*border: 1px solid rgb(184, 176, 176);*/
+}
+
+/*.row .cell:hover {
+    background: pink;
+}*/
