@@ -1,18 +1,22 @@
-function createGrid(v) {
-    for (let i = 0; i < v; i++) {
+
+function createGrid() {
+    let size = prompt("Enter a grid size: ");
+    for (let i = 0; i < size; i++) {
         let row = document.createElement('div');
         row.className = "row";
-        for (let x = 1; x <= v; x++) {
+        row.id = "cell";
+        for (let x = 1; x <= size; x++) {
             let cell = document.createElement('div');
             cell.className = "cell";
-            cell.style.height = 750 / v + 'px';
-            cell.style.width = 750 / v + 'px';
+            cell.id = "cell";
+            cell.style.height = 750 / size + 'px';
+            cell.style.width = 750 / size + 'px';
             row.appendChild(cell);
         }
     document.getElementById('container').appendChild(row);
     }
 }
-createGrid(100);
+
 
 const grid = document.querySelectorAll('div');
 grid.forEach((div) => {
@@ -27,10 +31,11 @@ function color(e) {
 }
 
 function reset(e) {
-    grid.forEach((div) => {
-        div.style.background = '';
-    })
+   let container = document.getElementById("container");
+   while (container.firstChild) {
+       container.firstChild.remove();
+   }
+   createGrid();
 }
 
-
-
+createGrid();
