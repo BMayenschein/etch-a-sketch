@@ -1,6 +1,8 @@
-
 function createGrid() {
-    let size = prompt("Enter a grid size: ");
+    let size = prompt("Enter a grid size (1-100): ");
+    while (size < 1 || size > 100) {
+        size = prompt("Enter a number between 1 and 100")
+    }
     for (let i = 0; i < size; i++) {
         let row = document.createElement('div');
         row.className = "row";
@@ -17,18 +19,8 @@ function createGrid() {
     }
 }
 
-
-const grid = document.querySelectorAll('div');
-grid.forEach((div) => {
-    div.addEventListener("mouseover", color)
-});
-
 const resetButton = document.querySelector('#reset');
 resetButton.addEventListener("click", reset);
-
-function color(e) {
-    e.target.style.background = 'black';
-}
 
 function reset(e) {
    let container = document.getElementById("container");
@@ -36,6 +28,23 @@ function reset(e) {
        container.firstChild.remove();
    }
    createGrid();
+   addListeners();
+}
+
+function addListeners() {
+    const gridContainer = document.getElementById('container');
+    const grid = gridContainer.querySelectorAll('div');
+    grid.forEach((div) => {
+        div.addEventListener("mouseover", color)
+    });
+}
+
+function color(e) {
+    e.target.style.background = 'black';
 }
 
 createGrid();
+addListeners();
+
+
+
