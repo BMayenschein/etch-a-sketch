@@ -30,11 +30,11 @@ body{
     align-items: center;
 }
 
-#reset {
+#reset, #color {
     color: #FFFFFF;
     padding: 5px 15px;
     margin: 0 0.1em 0.1em 0;
-    font-weight: 300;
+    font-weight: 500;
     text-align: center;
     border-radius: 2em;
     box-sizing: border-box;
@@ -46,6 +46,12 @@ body{
     transition: all 0.2s;
 }
 
-#reset:hover {
+#reset:hover, #color:hover {
     border-color: rgba(255,255,255,1);
+}
+
+#rand-color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

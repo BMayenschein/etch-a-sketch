@@ -22,6 +22,9 @@ function createGrid() {
 const resetButton = document.querySelector('#reset');
 resetButton.addEventListener("click", reset);
 
+const randomColorButton = document.querySelector("#rand-color");
+randomColorButton.addEventListener("click", addRandomColorListeners)
+
 function reset(e) {
    let container = document.getElementById("container");
    while (container.firstChild) {
@@ -39,8 +42,24 @@ function addListeners() {
     });
 }
 
+function addRandomColorListeners() {
+    const gridContainer = document.getElementById('container');
+    const grid = gridContainer.querySelectorAll('div');
+    grid.forEach((div) => {
+        div.addEventListener("mouseover", randomColor)
+    });
+}
+
 function color(e) {
     e.target.style.background = 'black';
+}
+
+function randomColor(e) {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    e.target.style.background = `rgba(${r},${g},${b},1)`
 }
 
 createGrid();
